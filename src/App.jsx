@@ -2,33 +2,40 @@ import { useState } from 'react'
 import Menu from './components/Header.jsx'
 import Post from './components/Post.jsx'
 
-var Posts = [
-    {
-      titulo: "titulo01",
-      paragrafo: "paragrafo01",
-      autor: "autor01",
-      data: "data01",
-      emocao: "emocao02",
-    },
-
-    {
-      titulo: "titulo02",
-      paragrafo: "paragrafo02",
-      autor: "autor02",
-      data: "data02",
-      emocao: "emocao01",
-    }
-]
-
-
 function App(){
+
+  const [postForm, setPostForm] = useState ({
+    titulo: '', 
+    paragrafo: '', 
+    emocao: ''
+  })
+
+  const [postsList, setPostsList] = useState([{
+    titulo: 'Título01',
+    paragrafo: 'Paragrafo01',
+    autor: 'Autor 01',
+    data: 'Data01',
+    emocao: 'Emocao01'
+  }]);
+
+  const handleChange = (event) => {
+    setPostForm({
+      ...postForm,
+      titulo: event.target.value
+    });
+  };
+
   return(
     <div>
       <Menu/>
 
-      {Posts.map((post) => (
+      {postsList.map((post) => (
         <Post dataPost= {post}/>
       ))}
+
+      <input type="text" onChange={handleChange} />
+
+      <p>{postForm.titulo}</p>
     </div>
   )
 }
