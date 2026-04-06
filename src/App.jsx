@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import Menu from './components/Header.jsx'
-import Post from './components/Post.jsx'
+import { Routes, Route } from 'react-router-dom'
+
+import Home from './pages/Home.jsx'
+import CriarPost from './pages/CriarPost.jsx'
 
 function App(){
 
@@ -25,17 +27,18 @@ function App(){
     });
   };
 
+  function handleAddPost(){
+    setPostsList ([...postsList,
+      postForm
+    ])
+  }
+
   return(
     <div>
-      <Menu/>
-
-      {postsList.map((post) => (
-        <Post dataPost= {post}/>
-      ))}
-
-      <input type="text" onChange={handleChange} />
-
-      <p>{postForm.titulo}</p>
+      <Routes>
+        <Route path='/' element={<Home postsList={postsList} />} />
+        <Route path='/criar' element={<CriarPost setPostsList={setPostsList} />} />
+      </Routes>
     </div>
   )
 }
