@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import logo from "../images/site_icon.png"
+
 function Menu(){
     return(
         <div className="menu_king">
@@ -6,13 +9,21 @@ function Menu(){
             </div>
 
             <ul>
-                <a href="#">Home</a>
-                <a href="#">Criar Post</a>
-                <a href="#">Editar Post</a>
-                <a href="#">Sign Up / Login</a>
+                <li>
+                    <Link to={"/"}>Home</Link>
+                </li>
+                <li>
+                    <Link to={"/criar"}>Criar Post</Link>
+                </li>
+                <li>
+                    <Link to={"/"}>Editar Post</Link>
+                </li>
+                <li>
+                    <Link to={"/"}>Sign Up / Login</Link>
+                </li>
             </ul>
 
-            <a href="#"><img src="src/images/site_icon.png" alt="Xisde Icon" width={100}/></a>
+            <img src={logo} alt="Xisde Icon" width={100}/>
         </div>
     )
 }

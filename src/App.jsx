@@ -20,18 +20,6 @@ function App(){
     emocao: 'Emocao01'
   }]);
 
-  const handleChange = (event) => {
-    setPostForm({
-      ...postForm,
-      titulo: event.target.value
-    });
-  };
-
-  function handleAddPost(){
-    setPostsList ([...postsList,
-      postForm
-    ])
-  }
 
   return(
     <div>
