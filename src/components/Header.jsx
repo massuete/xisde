@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../images/site_icon.png"
 
-function Menu(){
+function Menu({ user }){
     return(
         <div className="menu_king">
             <div>
@@ -18,9 +18,10 @@ function Menu(){
                 <li>
                     <Link to={"/"}>Editar Post</Link>
                 </li>
-                <li>
-                    <Link to={"/"}>Sign Up / Login</Link>
-                </li>
+                {user ? ("") : 
+                (<li>
+                    <Link to={"/login"}>Sign Up / Login</Link>
+                </li>)}
             </ul>
 
             <img src={logo} alt="Xisde Icon" width={100}/>
