@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useEffect } from 'react'
 import { auth } from './firebase/index.jsx'
@@ -39,10 +39,10 @@ function App(){
     <div>
       <Routes>
         <Route path='/' element={<Home postsList={postsList} user={user} />} />
-        <Route path='/criar' element={<CriarPost setPostsList={setPostsList} user={user} />} />
+        <Route path='/criar' element={user ? <CriarPost setPostsList={setPostsList} user={user} /> : <Navigate to={"/login"} replace/>} />
         <Route path='/login' element={<Login user={user} />} />
       </Routes>
     </div>
   )
 }
-export default App
+export default App;

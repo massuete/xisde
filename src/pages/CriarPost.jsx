@@ -3,21 +3,21 @@ import Menu from "../components/Header";
 import { useState } from "react";
 import { data, useNavigate } from "react-router-dom";
 
-function CriarPost({ setPostsList }){
+function CriarPost({ setPostsList, user }){
 
     const navigate  = useNavigate();
 
     const [postForm, setPostForm] = useState ({
         titulo: '', 
         paragrafo: '', 
-        data: '',
         emocao: ''
     })
 
     function handleAddPost(){
         const novoPost = {
             ...postForm,
-            data: new Date().toLocaleDateString()
+            data: new Date().toLocaleDateString(),
+            autor: user.email
         }
 
         setPostsList (prev => [...prev, 
@@ -29,7 +29,7 @@ function CriarPost({ setPostsList }){
 
     return(
         <div>
-            <Menu />
+            <Menu user={user}/>
 
             <h1>Criar Post</h1>
 
