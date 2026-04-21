@@ -18,13 +18,7 @@ function App(){
     emocao: ''
   })
 
-  const [postsList, setPostsList] = useState([{
-    titulo: 'Título01',
-    paragrafo: 'Paragrafo01',
-    autor: 'Autor 01',
-    data: 'Data01',
-    emocao: 'Emocao01'
-  }]);
+  const [postsList, setPostsList] = useState([]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (usuario) => {
@@ -38,7 +32,7 @@ function App(){
   return(
     <div>
       <Routes>
-        <Route path='/' element={<Home postsList={postsList} user={user} />} />
+        <Route path='/' element={<Home postsList={postsList} user={user} setPostsList={setPostsList} />} />
         <Route path='/criar' element={user ? <CriarPost setPostsList={setPostsList} user={user} /> : <Navigate to={"/login"} replace/>} />
         <Route path='/login' element={<Login user={user} />} />
       </Routes>

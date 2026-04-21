@@ -1,7 +1,9 @@
 import Menu from "../components/Header";
 
 import { useState } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase";
 
 function CriarPost({ setPostsList, user }){
 
@@ -13,19 +15,23 @@ function CriarPost({ setPostsList, user }){
         emocao: ''
     })
 
-    function handleAddPost(){
+    async function handleAddPost(){
         const novoPost = {
             ...postForm,
             data: new Date().toLocaleDateString(),
             autor: user.email
         }
 
+        await addDoc(collection(db, "posts"), {
+            ...novoPost
+        });
+
         setPostsList (prev => [...prev, 
         novoPost]);
 
         navigate("/");
-    
-  }
+
+    }
 
     return(
         <div>
