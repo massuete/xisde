@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 function Post(props){
+    const navigate = useNavigate();
+
+    const handlePostEdit = () => {
+        navigate(`/editar/${props.dataPost.id}`)
+    }
+
     return(
         <div>
             <h1>
@@ -20,6 +28,8 @@ function Post(props){
             <p>
                 {props.dataPost.emocao}
             </p>
+
+            {props.canEdit ? <button type="button" onClick={handlePostEdit}>Editar Post</button> : ""}
         </div>
     )
 }

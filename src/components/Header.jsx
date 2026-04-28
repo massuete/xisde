@@ -29,7 +29,7 @@ function Menu({ user }){
                     <Link to={"/criar"}>Criar Post</Link>
                 </li>
                 <li>
-                    <Link to={"/"}>Editar Post</Link>
+                    <Link to={"/editar"}>Editar Post</Link>
                 </li>
                 {user ? ("") : 
                 (<li>
