@@ -1,3 +1,5 @@
+import "../style/header_style.css"
+
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../images/site_icon.png"
 

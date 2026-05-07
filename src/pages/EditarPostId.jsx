@@ -11,6 +11,10 @@ function EditarPostId({user}){
     const navigate = useNavigate();
 
     const [postEdit, setPostEdit] = useState({}); 
+
+    const [loadingType, setLoadingType] = useState(null);
+
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     
     useEffect(() => 
 
@@ -30,17 +34,29 @@ function EditarPostId({user}){
     }, [user, id]);
     
     async function handleUptadePost(){
+        setLoadingType("updating")
+
         await updateDoc(doc(db, "posts", id), {
             titulo: postEdit.titulo,
             paragrafo: postEdit.paragrafo,
             emocao: postEdit.emocao  
         })
 
+        await delay (2000);
+
         navigate('/');
     }
 
     async function handleDeletePost(){
+        const confirmacao = confirm("Tem certeza que deseja apagar esse post?")
+
+        if (!confirmacao) return;
+
+        setLoadingType("deleting");
+
         await deleteDoc(doc(db, "posts", id));
+        
+        await delay (2000);
 
         navigate('/');
     }
@@ -85,13 +101,19 @@ function EditarPostId({user}){
                 <option value="tedio">Entediado</option>
             </select>
 
-            <button type="button" onClick={handleDeletePost}>
+            <button disabled={!!loadingType} type="button" onClick={handleDeletePost}>
                 Deletar Post
             </button>
 
-            <button type="button" onClick={handleUptadePost}>
+            <button disabled={!!loadingType} type="button" onClick={handleUptadePost}>
                 Salvar
             </button>
+
+            {loadingType && (
+                <div className="loading-overlay">
+                    {loadingType === "updating" ? (<p>Salvando mudanças...</p>) : (<p>Deletando Post...</p>)}
+                </div>
+            )}
     </div> ) 
 }
 

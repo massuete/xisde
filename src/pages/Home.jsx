@@ -11,8 +11,6 @@ function Home({ setPostsList, postsList, user }){
         const tempPostsList = []
 
         const docPosts = await getDocs(collection(db, "posts"));
-
-
         docPosts.forEach((doc) => {
             tempPostsList.push({
                 id: doc.id,
@@ -35,6 +33,8 @@ function Home({ setPostsList, postsList, user }){
             ) : (
             <p>Você não está logado.</p>
             )}
+
+        <h1>XisChat</h1>
         
         {postsList.map((post) => (
         <Post key={post.id} dataPost={post} />

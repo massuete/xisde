@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root 
+{ 
+    --azul-base: #2E5BFF; 
+    --rosa-pink: #FF4FD8; 
+    --amarelo-frevo: #FFD93D; 
+    --azul-escuro: #0A0F1F; 
+    --branco: #EAEAFF; 
+}
+
+.post_king{
+    background: linear-gradient(
+    to top,
+    #ffffff 0%,
+    #ffeef8 50%,
+    #ffd6ec 100%
+    );
+    max-width: 600px;
+    padding: 30px 40px 10px;
+    margin: 40px auto;
+    border-radius: 10px;
+    border-color: #FF4FD8;
+}
+
+.post_king h1{
+    font-family: "Fraunces";
+    color: var(--azul-escuro);
+    text-shadow: rgba(0, 0, 0, 0.425) 3px 3px 5px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+#line{
+    border: none;
+    border-top: 2px dashed #ff9ad7;
+    opacity: 0.7;
+}
+
+p.post_paragrafo{
+    font-family: "Exo 2";
+    color: #6b4f7a;
+}
+
+p.post_dados{
+    font-family: "Exo 2";
+    color: black;
+}
+
+p.post_emoticon_itens{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+#text_emoticon{
+    font-family: "Fraunces";
+    font-size: 25px;
+    text-shadow: rgba(0, 0, 0, 0.452) -1px -1px;
+    color: var(--rosa-pink);
+    padding-left: 10px;
+}
+
+#humor_text{
+    font-family: "Playfair Display";
+    color: var(--azul-escuro);
+    font-size: 35px;
+    font-weight: 800;
+    
+}
+
+#post_emoticon{
+    margin-left: 10px;
+    width: 60px;
+}
+
+.post_dados{
+    font-family: "Exo 2";
+    text-align: center;
+    margin: 10px;
+    font-size: 13px
+}

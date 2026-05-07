@@ -67,11 +67,12 @@ function CriarPost({ setPostsList, user }){
                 <option value="constrangido">Constrangido(a)</option>
                 <option value="medo">Medo</option>
                 <option value="confuso">Confuso(a)</option>
-                <option value="ansiedade">Ansioso(a)</option>
-                <option value="nostalgia">Nostalgia</option>
+                <option value="ansioso">Ansioso(a)</option>
+                <option value="nostalgico">Nostalgico</option>
                 <option value="triste">Tristeza</option>
                 <option value="apaixonado">Apaixonado(a)</option>
-                <option value="tedio">Entediado</option>
+                <option value="entediado">Entediado</option>
+                <option value="envergonhado">Envergonhado</option>
             </select>
 
             <button type="button" onClick={handleAddPost}>
